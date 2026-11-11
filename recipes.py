@@ -1,29 +1,19 @@
-"""Recipes for the meal-plan CSP. Each recipe has a name, a cook time, and tags."""
+"""Recipes for the meal-plan CSP, stored as a pandas DataFrame."""
 
-from __future__ import annotations
-from dataclasses import dataclass
-from typing import Set
+import pandas as pd
 
 
-@dataclass
-class Recipe:
-    name: str
-    minutes: int
-    tags: Set[str]
-
-
-# Twelve recipes. Enough variety for a 7-day week under the 3-day no-repeat rule.
-RECIPES = [
-    Recipe("chicken rice",   25, {"protein"}),
-    Recipe("tofu stir-fry",  20, {"protein", "vegetable"}),
-    Recipe("pasta",          30, {"protein"}),
-    Recipe("salad",          10, {"vegetable"}),
-    Recipe("soup",           35, {"vegetable"}),
-    Recipe("omelette",       15, {"protein"}),
-    Recipe("bean bowl",      20, {"protein", "vegetable"}),
-    Recipe("fish tacos",     25, {"protein"}),
-    Recipe("veggie wrap",    15, {"vegetable"}),
-    Recipe("fried rice",     20, {"protein", "vegetable"}),
-    Recipe("lentil stew",    40, {"protein", "vegetable"}),
-    Recipe("grilled cheese", 10, {"protein"}),
-]
+RECIPES = pd.DataFrame([
+    {"name": "chicken rice",  "minutes": 25, "tags": {"protein"}},
+    {"name": "tofu stir-fry", "minutes": 20, "tags": {"protein", "vegetable"}},
+    {"name": "pasta",         "minutes": 30, "tags": {"protein"}},
+    {"name": "salad",         "minutes": 10, "tags": {"vegetable"}},
+    {"name": "soup",          "minutes": 35, "tags": {"vegetable"}},
+    {"name": "omelette",      "minutes": 15, "tags": {"protein"}},
+    {"name": "bean tacos",    "minutes": 20, "tags": {"protein", "vegetable"}},
+    {"name": "grilled fish",  "minutes": 25, "tags": {"protein"}},
+    {"name": "veggie bowl",   "minutes": 15, "tags": {"vegetable"}},
+    {"name": "fried rice",    "minutes": 20, "tags": {"protein", "vegetable"}},
+    {"name": "lentil stew",   "minutes": 40, "tags": {"protein", "vegetable"}},
+    {"name": "caprese",       "minutes": 10, "tags": {"vegetable"}},
+])
