@@ -20,5 +20,22 @@ def show(title, plan):
         print("  no plan found")
         return
 
+    # Total cook time is the sum of the minutes column.
+    total = int(plan["minutes"].sum())
+
+    # Walk the variables in week order so the printout is Mon-lunch first
+    for _, var in variables().iterrows():
+        rows = plan[(plan["day"] == var["day"]) & (plan["meal"] == var["meal"])]
+        if rows.empty:
+            continue
+        row = rows.iloc[0]
+        tags = sorted(row["tags"])
+        print(f"  {row['day']:3s} {row['meal']:7s}  {row['name']:16s}  "
+              f"{int(row['minutes']):3d} min  {tags}")
+
+    print(f"  total cook time: {total} min  (cap {COOK_CAP})")
+
 if __name__ == "__main__":
-    print("Show plans...")
+    # Baseline first, then the search, compare side by side.
+    show("Greedy first-fit (baseline)", greedy_first_fit())
+    show("Backtracking", backtracking())
