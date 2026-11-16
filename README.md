@@ -46,29 +46,33 @@ The greedy algorithm serves as a baseline for comparison. It moves through the w
 - **Recipe preparation accuracy:** Actual cooking times may exceed listed preparation times due to additional preparation, cooking mistakes, or differences in equipment.
 
 ## How to Run the Project
+Need Python 3.10 or later.
+Navigate into the project: cd mealPlan_Agent
+
+pip install pandas
+python .\eval.py
+
+## Troubleshooting
+### pip command not recognized (Windows)
+When installing pandas, you may encounter the following error in PowerShell:
+
+`pip : The term 'pip' is not recognized as the name of a cmdlet, function, script file, or operable program.`
+### Solution
+Instead of using:`pip install pandas`
+Use: `python -m pip install pandas`
+This runs pip through Python directly and avoids relying on the standalone pip command being available in the system PATH.
+
+If the command still does not work, make sure Python is installed and accessible from your terminal:`python --version`
+
 ### Clone the repository
 git clone https://github.com/Amwaterwall/mealPlan_Agent.git
-
-# Navigate into the project
-cd mealPlan_Agent
-
-# Run the program
-python .\eval.py
 
 ## Example Output
 
 ## Future Improvements
-# Weekly Meal Plan
-A small CSP solver that fills lunch and dinner for seven days under three rules: variety, daily tags, and a cook-time cap.
 
-# Files
+## Files
 recipes.py — the recipe list (name, cook time, tags) as a pandas DataFrame.
 csp.py — variables, domain, and the three constraints.
 solve.py — greedy first-fit (baseline) and just plain backtracking for now.
 eval.py — runs both solvers and prints the plans.
-
-# Run
-pip install pandas
-python3 eval.py
-
-Need Python 3.10 or later.
