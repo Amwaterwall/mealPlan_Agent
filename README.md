@@ -20,17 +20,11 @@ Planning meals for an entire week can be time-consuming and repetitive. People o
 
 ## Algorithms & Techniques
 
-### Backtracking
-Explores possible meal assignments.
- 
-### Minimum Remaining Values (MRV)
-MRV picks the meal slot with the fewest remaining recipes first, avoiding dead ends.
-
-### Forward checking
-Forward checking removes a chosen recipe from the next two days as soon as it is placed.
-
 ### Greedy: Baseline
 The greedy algorithm serves as a baseline for comparison. It moves through the week in order, assigning the first available recipe that satisfies the current constraints. Unlike backtracking, it does not reconsider previous assignments when it reaches a dead end.
+
+### Backtracking
+Explores all possible meal assignments.
 
 ## Evaluation Plan
 |**Evaluation metric**|**Success criteria**|
